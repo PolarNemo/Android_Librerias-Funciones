@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NuevoProyecto</string>
+
+    <string name="TitleApp">Examen :D</string>
+
+    <string name="user">Usuario</string>
+    <string name="pwd">Password</string>
+    <string name="dni">DNI</string>
+    <string name="approved">Aprobado</string>
+
+    <string name="typeHere">Escribe aquí</string>
+
+    <string name="noneSpace"> </string>
+
+    <string name="Go">Ir :D</string>
+
+</resources>
