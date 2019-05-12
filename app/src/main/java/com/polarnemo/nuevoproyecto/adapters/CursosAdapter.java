@@ -5,63 +5,99 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.polarnemo.nuevoproyecto.R;
 import com.polarnemo.nuevoproyecto.be.Curso;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CursosAdapter extends ArrayAdapter {
+public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder> {
 
-    private Activity context;
-    ArrayList<Curso> listCursos;
-    private int resources;
+    private static final String TAG = "CursosAdapter |Nemo";
 
-    public CursosAdapter(@NonNull Activity context, @LayoutRes int resource, ArrayList listCursos) {
-        super(context, resource,listCursos);
-        this.context=context;
-        this.listCursos=listCursos;
-        this.resources=resource;
+    private ArrayList<Curso> arrayCurso=new ArrayList<>();
+    private Context context;
+
+    public CursosAdapter(Context context, ArrayList<Curso> arrayCurso) {
+        this.arrayCurso = arrayCurso;
+        this.context = context;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        Log.i(TAG, "onCreateViewHolder: called");
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cursos_adapter, parent, false);
+        ViewHolder holder = new ViewHolder(view) ;
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position){
+        Log.i(TAG, "onBindViewHolder: called");
+
+        holder.lblNameCurso.setText(arrayCurso.get(position).getNombreCurso());
+        holder.lblPromedioCurso.setText(arrayCurso.get(position).getPromedioFinal()+"");
+        holder.lblProfesorCurso.setText(arrayCurso.get(position).getIdProfesor());
+        holder.chkAprobadoCurso.setChecked(arrayCurso.get(position).getAprobado());
+
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(context,"Funciono perra",Toast.LENGTH_LONG).show();
+
+                Log.i(TAG, "onClick: Nombre curso"+arrayCurso.get(position).getNombreCurso());
+                Log.i(TAG, "onClick: Promedio curso"+arrayCurso.get(position).getPromedioFinal());
+                Log.i(TAG, "onClick: Profesor curso"+arrayCurso.get(position).getIdProfesor());
+                Log.i(TAG, "onClick: Aprobado curso"+arrayCurso.get(position).getAprobado());
+
+            }
+        });
 
     }
 
     @Override
-    public Object getItem(int position) {
-        return listCursos.get(position);
+    public int getItemCount(){
+        return arrayCurso.size();
     }
 
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup)
-    {
-        if(context!=null)
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView lblNameCurso, lblPromedioCurso, lblProfesorCurso;
+        CheckBox chkAprobadoCurso;
+        LinearLayout parentLayout;
+
+        public ViewHolder(View itemView)
         {
-            view = context.getLayoutInflater().inflate(resources,null);
-            TextView lblName=view.findViewById(R.id.lblNameCurso_CursoListView);
-            TextView lblPromedio=view.findViewById(R.id.lblPromedioCurso_CursoListView);
-            TextView lblProfesor=view.findViewById(R.id.lblProfesorCurso_CursoListView);
-            CheckBox chkAprobado=view.findViewById(R.id.chkAprobadoCurso_CursoListView);
-
-            Curso objCurso=new Curso();
-            objCurso.setNombreCurso(lblName.getText().toString());
-            objCurso.setPromedioFinal(Integer.parseInt(lblPromedio.getText().toString()));
-            objCurso.setIdProfesor(lblProfesor.getText().toString());
-            objCurso.setAprobado(chkAprobado.isChecked());
-
-
-
-            listCursos.set(i,objCurso);
-
-
+            super(itemView);
+            lblNameCurso= itemView.findViewById(R.id.lblNameCurso_CursoListView);
+            lblPromedioCurso=itemView.findViewById(R.id.lblPromedioCurso_CursoListView);
+            lblProfesorCurso= itemView.findViewById(R.id.lblProfesorCurso_CursoListView);
+            chkAprobadoCurso=itemView.findViewById(R.id.chkAprobadoCurso_CursoListView);
+            parentLayout=itemView.findViewById(R.id.parentLayout_CursoRecyclerViewAdapter);
 
         }
-        return view;
+
+
+
+
     }
+
 
 
 }

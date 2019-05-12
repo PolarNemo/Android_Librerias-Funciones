@@ -23,8 +23,7 @@ public class Curso {
     }
 
     public Curso(String nombreCurso, String idProfesor, int nota1, int nota2, int nota3, int nota4,
-                 int notaFinal, int inasistencias, int cantClasesTotales, double promedioFinal,
-                 double promedioInasistencias, boolean aprobado) {
+                 int notaFinal, int inasistencias, int cantClasesTotales, boolean aprobado) {
         this.nombreCurso = nombreCurso;
         this.idProfesor = idProfesor;
         this.nota1 = nota1;
@@ -34,8 +33,8 @@ public class Curso {
         this.notaFinal = notaFinal;
         this.inasistencias = inasistencias;
         this.cantClasesTotales = cantClasesTotales;
-        this.promedioFinal = promedioFinal;
-        this.promedioInasistencias = promedioInasistencias;
+        this.promedioFinal = (this.nota1+this.nota2+this.nota3+this.nota4+(this.notaFinal*2))/5;
+        this.promedioInasistencias = this.inasistencias*100/this.cantClasesTotales;
         this.aprobado = aprobado;
     }
 
@@ -127,7 +126,7 @@ public class Curso {
         this.promedioInasistencias = promedioInasistencias;
     }
 
-    public boolean isAprobado() {
+    public boolean getAprobado() {
         return aprobado;
     }
 
