@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-        <item
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item
             android:state_pressed="true">
             <shape>
-                <stroke
-                    android:width="@dimen/PaddingVerticalAQuiteMore"
-                    android:color="@color/colorPrimaryDark">
-                </stroke>
+
                 <solid
                     android:color="@color/blue"/>
                 <corners
@@ -20,8 +14,8 @@
         <item>
             <shape>
                 <stroke
-                    android:width="@dimen/PaddingVerticalAQuiteMore"
-                    android:color="@color/green">
+                    android:width="@dimen/PaddingHorizontalAlmostNothing"
+                    android:color="@color/whiteTras">
                 </stroke>
                 <solid
                     android:color="@color/blueTras"/>
@@ -29,6 +23,4 @@
                     android:radius="4dp"/>
             </shape>
         </item>
-
-    </selector>
-</shape>
+</selector>

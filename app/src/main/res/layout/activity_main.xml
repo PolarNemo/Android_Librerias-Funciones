@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/blueTras">
+        android:background="@drawable/border_bgindigo_menu">
         <TextView
             android:id="@+id/lblUser"
 
@@ -33,7 +33,7 @@
             android:layout_marginTop="@dimen/PaddingHorizontalABit"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="@color/blueTras">
+            android:background="@drawable/border_bgindigo_menu">
 
         <TextView
             android:id="@+id/lblPwd"
@@ -54,6 +54,8 @@
     <Button
         android:id="@+id/btnGo"
 
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/PaddingMediumSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border_curso_adapter_menu"

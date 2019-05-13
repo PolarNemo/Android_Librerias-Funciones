@@ -9,13 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.polarnemo.nuevoproyecto.be.Usuario;
-
-import org.w3c.dom.Text;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -104,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         lblUser.setText(R.string.user);
         lblPwd.setText(R.string.pwd);
 
-        txtUser.setHint(R.string.typeHere+R.string.user);
+        txtUser.setHint(R.string.typeHere);
         txtPwd.setHint(R.string.typeHere);
         Log.i(TAG, "formateandoTexto: Terminando llenada de data");
     }

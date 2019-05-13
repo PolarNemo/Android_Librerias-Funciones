@@ -5,12 +5,13 @@
     <color name="colorAccent">#D81B60</color>
     <color name="black">#0c0c0c</color>
     <color name="white">#ffffff</color>
+    <color name="whiteTras">#2FFFFFFF</color>
     <color name="indigo">#3F00FF</color>
-    <color name="blue">#27009E</color>
-    <color name="blueTras">#6D27009E</color>
+    <color name="blue">#3606F0</color>
+    <color name="blueTras">#370021F8</color>
     <color name="green">#0ece38</color>
-    <color name="greenTras">#810ECE38</color>
+    <color name="greenTras">#430ECE38</color>
     <color name="red">#ba1818</color>
-    <color name="redTras">#94BA1818</color>
+    <color name="redTras">#45BA1818</color>
     <color name="grey">#c3c3c3 </color>
 </resources>
