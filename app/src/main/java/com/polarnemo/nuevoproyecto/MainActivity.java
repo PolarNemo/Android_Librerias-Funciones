@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, "onClick: Ingresando los putExtras");
                     intentMenu.putExtra("Login_to_Menu_Nombre",objUsuario.getNombre());
                     intentMenu.putExtra("Login_to_Menu_Carrera",objUsuario.getCarrera());
+                    intentMenu.putExtra("Login_to_Menu_Distrito",objUsuario.getDistrito());
                     intentMenu.putExtra("Login_to_Menu_DNI",objUsuario.getDni());
                     intentMenu.putExtra("Login_to_Menu_Edad",objUsuario.getEdad());
                     startActivity(intentMenu);
@@ -103,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         lblUser.setText(R.string.user);
         lblPwd.setText(R.string.pwd);
 
-        txtUser.setHint("Ingrese aqui su usuario");
-        txtPwd.setHint("Ingrese aqui su contraseña");
+        txtUser.setHint(R.string.typeHere+R.string.user);
+        txtPwd.setHint(R.string.typeHere);
         Log.i(TAG, "formateandoTexto: Terminando llenada de data");
     }
 

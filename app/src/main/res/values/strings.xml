@@ -6,11 +6,15 @@
     <string name="user">Usuario</string>
     <string name="pwd">Password</string>
     <string name="dni">DNI</string>
+    <string name="direction">Direccion</string>
+    <string name="age">Edad</string>
+    <string name="carreer">Carrera</string>
     <string name="approved">Aprobado</string>
     <string name="grade1">Nota#1</string>
     <string name="grade2">Nota#2</string>
     <string name="grade3">Nota#3</string>
     <string name="grade4">Nota#4</string>
+    <string name="admin">Admins</string>
     <string name="finalExamGrade">Nota del Final</string>
     <string name="finalPromGrade">Promedio Final</string>
 
@@ -18,6 +22,8 @@
 
     <string name="noneSpace"> </string>
     <string name="twoPoints">: </string>
+    <string name="gradesDoublePoint">Notas : </string>
+
 
     <string name="Go">Ir :D</string>
 

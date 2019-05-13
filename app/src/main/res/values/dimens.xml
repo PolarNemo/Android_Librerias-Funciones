@@ -6,6 +6,7 @@
     <dimen name="PaddingHorizontalABit">5dp</dimen>
     <dimen name="PaddingVerticalAQuiteMore">10dp</dimen>
     <dimen name="PaddingMediumSize">20dp</dimen>
+    <dimen name="PaddingHugeSize">30dp</dimen>
     <dimen name="SizeLarge">16sp</dimen>
     <dimen name="SizeSuperLarge">32sp</dimen>
 </resources>

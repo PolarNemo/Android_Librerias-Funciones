@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.polarnemo.nuevoproyecto.adapters.CursosAdapter;
@@ -23,9 +25,13 @@ public class MenuActivity  extends AppCompatActivity {
     ArrayList<Curso> listCursos=new ArrayList<>();
 
     TextView lblUserName, lblUserDni;
+    Button btnUser;
 
     Usuario objUsuario;
     Curso objCurso;
+
+    String nombreUsuario, carreraUsuario, distritoUsuario;
+    int DNIUsuario, edadUsuario;
     
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +41,19 @@ public class MenuActivity  extends AppCompatActivity {
 
         lblUserName=findViewById(R.id.lblUserName);
         lblUserDni=findViewById(R.id.lblUserDni);
+        btnUser=findViewById(R.id.btnUser_menu);
 
         //Adquiriendo los extras
         Intent intent=getIntent();
-        String nombreUsuario= intent.getStringExtra("Login_to_Menu_Nombre");
-        String carreraUsuario= intent.getStringExtra("Login_to_Menu_Carrera");
-        int DNIUsuario= intent.getIntExtra("Login_to_Menu_DNI",0);
-        int edadUsuario= intent.getIntExtra("Login_to_Menu_Edad",0);
+        nombreUsuario= intent.getStringExtra("Login_to_Menu_Nombre");
+        carreraUsuario= intent.getStringExtra("Login_to_Menu_Carrera");
+        distritoUsuario= intent.getStringExtra("Login_to_Menu_Distrito");
+        DNIUsuario= intent.getIntExtra("Login_to_Menu_DNI",0);
+        edadUsuario= intent.getIntExtra("Login_to_Menu_Edad",0);
 
         Log.i(TAG, "onCreate: nombreUsuario:"+nombreUsuario);
         Log.i(TAG, "onCreate: carreraUsuario:"+carreraUsuario);
+        Log.i(TAG, "onCreate: distritoUsuario:"+distritoUsuario);
         Log.i(TAG, "onCreate: DNIUsuario:"+DNIUsuario);
         Log.i(TAG, "onCreate: edadUsuario:"+edadUsuario);
 
@@ -53,6 +62,20 @@ public class MenuActivity  extends AppCompatActivity {
         //Pintando los datos del usuario
         lblUserName.setText(nombreUsuario);
         lblUserDni.setText(": "+DNIUsuario);
+
+        btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentUsuario=new Intent(MenuActivity.this,UsuarioActivity.class);
+                intentUsuario.putExtra("Menu_to_User_Nombre",nombreUsuario);
+                intentUsuario.putExtra("Menu_to_User_Carrera",carreraUsuario);
+                intentUsuario.putExtra("Menu_to_User_Distrito",distritoUsuario);
+                intentUsuario.putExtra("Menu_to_User_DNI",DNIUsuario);
+                intentUsuario.putExtra("Menu_to_User_Edad",edadUsuario);
+                startActivity(intentUsuario);
+
+            }
+        });
 
         Log.i(TAG, "onCreate: Terminando el menu");
     }
@@ -171,6 +194,4 @@ public class MenuActivity  extends AppCompatActivity {
 
         listCursos.add(objCurso);
     }
-
-
 }

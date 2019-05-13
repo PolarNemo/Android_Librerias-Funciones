@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -112,6 +113,8 @@ public class CursoActivity extends AppCompatActivity {
         }
 
         skbPorcentajeInasistencias.setProgress(Integer.parseInt(concatDeCharsInasistencia+""));
+        skbPorcentajeInasistencias.setEnabled(false);
+        skbPorcentajeInasistencias.setVisibility(View.VISIBLE);
 
         Log.i(TAG, "onCreate: Imprimiendo el titulo");
         setTitle("Curso : "+nombreCurso);

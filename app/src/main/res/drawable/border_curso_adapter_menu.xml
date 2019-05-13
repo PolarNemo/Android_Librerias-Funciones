@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+
     <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-
 
         <item
             android:state_pressed="true">
@@ -11,6 +10,8 @@
                     android:width="@dimen/PaddingVerticalAQuiteMore"
                     android:color="@color/colorPrimaryDark">
                 </stroke>
+                <solid
+                    android:color="@color/blue"/>
                 <corners
                     android:radius="4dp"/>
             </shape>
@@ -22,6 +23,8 @@
                     android:width="@dimen/PaddingVerticalAQuiteMore"
                     android:color="@color/green">
                 </stroke>
+                <solid
+                    android:color="@color/blueTras"/>
                 <corners
                     android:radius="4dp"/>
             </shape>

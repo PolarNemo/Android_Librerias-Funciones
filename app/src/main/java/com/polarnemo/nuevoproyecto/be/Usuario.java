@@ -2,7 +2,7 @@ package com.polarnemo.nuevoproyecto.be;
 
 public class Usuario {
 
-    String nombre, distrito, carrera;
+    String nombre, distrito, carrera, uriPerfil;
     int dni, edad;
 
     public Usuario() {
@@ -11,6 +11,7 @@ public class Usuario {
         this.carrera = "Latin Languages";
         this.dni = 555;
         this.edad = 33;
+        this.uriPerfil="http://192.168.0.136:85/RespuestasAppEntrevista/UgandaKnuckles.jpg";
     }
 
     public Usuario(String nombre, String distrito, String carrera, int dni, int edad) {
@@ -19,6 +20,7 @@ public class Usuario {
         this.carrera = carrera;
         this.dni = dni;
         this.edad = edad;
+        this.uriPerfil="http://192.168.0.136:85/RespuestasAppEntrevista/UgandaKnuckles.jpg";
     }
 
     public String getNombre() {
@@ -61,5 +63,9 @@ public class Usuario {
         this.edad = edad;
     }
 
+    public String getUriPerfil() { return uriPerfil; }
 
+    public void setUriPerfil(String uriPerfil) {
+        this.uriPerfil = uriPerfil;
+    }
 }

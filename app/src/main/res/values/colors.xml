@@ -6,6 +6,8 @@
     <color name="black">#0c0c0c</color>
     <color name="white">#ffffff</color>
     <color name="indigo">#3F00FF</color>
+    <color name="blue">#27009E</color>
+    <color name="blueTras">#6D27009E</color>
     <color name="green">#0ece38</color>
     <color name="greenTras">#810ECE38</color>
     <color name="red">#ba1818</color>
