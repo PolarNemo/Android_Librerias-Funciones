@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.polarnemo.nuevoproyecto.be.Usuario;
+
 import org.w3c.dom.Text;
 
 import java.util.Random;
@@ -51,13 +53,19 @@ public class MainActivity extends AppCompatActivity {
                 if(strUser.equals("admin") && strPwd.equals("123"))
                 {
                     Log.i(TAG, "onClick: Logeo Correcto");
-                    Intent intent = new Intent( MainActivity.this,MenuActivity.class);
-                    startActivity(intent);
+                    Usuario objUsuario=new Usuario();
+                    Intent intentMenu = new Intent( MainActivity.this,MenuActivity.class);
+                    Log.i(TAG, "onClick: Ingresando los putExtras");
+                    intentMenu.putExtra("Login_to_Menu_Nombre",objUsuario.getNombre());
+                    intentMenu.putExtra("Login_to_Menu_Carrera",objUsuario.getCarrera());
+                    intentMenu.putExtra("Login_to_Menu_DNI",objUsuario.getDni());
+                    intentMenu.putExtra("Login_to_Menu_Edad",objUsuario.getEdad());
+                    startActivity(intentMenu);
                 }
                 else if(strUser.equals("") && strPwd.equals("")){
                     Log.i(TAG, "onClick: Entro vacio");
-                    lblVacio.setText("Tienes que colocar algun dato :)");
                     lblVacio.setTextColor(getResources().getColor(R.color.indigo));
+                    lblVacio.setText("Tienes que colocar algun dato :)");
                     new Handler().postDelayed(new Runnable(){
                         @Override
                         public void run() {
@@ -69,7 +77,16 @@ public class MainActivity extends AppCompatActivity {
                 }else
                 {
                     Log.i(TAG, "onClick: Logeo Incorrecto");
-
+                    lblVacio.setTextColor(getResources().getColor(R.color.red));
+                    lblVacio.setText("Logeo incorrecto :(");
+                    new Handler().postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            Log.i(TAG, "run: Handler started");
+                            lblVacio.setText("");
+                            Log.i(TAG, "run: End of the Handler");
+                        }
+                    }, 2000);
 
                 }
 

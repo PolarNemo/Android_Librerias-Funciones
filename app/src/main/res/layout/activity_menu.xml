@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/PaddingHorizontalABit"
     android:weightSum="2">
 
     <LinearLayout
@@ -42,6 +43,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/PaddingHorizontalABit"
         android:id="@+id/cursos_RecyclerView">
 
     </android.support.v7.widget.RecyclerView>

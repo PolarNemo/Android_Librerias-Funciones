@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="ImageVerticalMediumSize">200dp</dimen>
+    <dimen name="ImageHorizontalMediumSize">200dp</dimen>
+    <dimen name="PaddingHorizontalAlmostNothing">2dp</dimen>
+    <dimen name="PaddingHorizontalABit">5dp</dimen>
+    <dimen name="PaddingVerticalAQuiteMore">10dp</dimen>
+    <dimen name="PaddingMediumSize">20dp</dimen>
     <dimen name="SizeLarge">16sp</dimen>
     <dimen name="SizeSuperLarge">32sp</dimen>
 </resources>

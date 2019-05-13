@@ -4,12 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/xamarinmonkey"
+    android:background="@drawable/paisajecielo"
     android:gravity="center">
+
+    <ImageView
+        android:layout_width="@dimen/ImageHorizontalMediumSize"
+        android:layout_height="@dimen/ImageVerticalMediumSize"
+        android:src="@drawable/itdatasf"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/PaddingMediumSize"
+        android:foregroundGravity="center"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/PaddingMediumSize"
         android:textSize="@dimen/SizeSuperLarge"
         android:text="@string/TitleApp"
         android:textStyle="bold"
@@ -17,9 +26,9 @@
         android:gravity="center"/>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/xamarin"
+        android:layout_width="@dimen/ImageHorizontalMediumSize"
+        android:layout_height="@dimen/ImageVerticalMediumSize"
+        android:src="@drawable/xamarinmonkeysf"
         android:layout_gravity="center"
         android:foregroundGravity="center"/>
 

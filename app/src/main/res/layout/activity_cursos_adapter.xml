@@ -4,8 +4,15 @@
     android:baselineAligned="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/PaddingVerticalAQuiteMore"
+    android:layout_marginBottom="@dimen/PaddingVerticalAQuiteMore"
     android:orientation="horizontal"
     android:id="@+id/parentLayout_CursoRecyclerViewAdapter">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/PaddingHorizontalAlmostNothing">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,8 +55,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:checked="false"/>
+                android:clickable="false"/>
 
         </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>

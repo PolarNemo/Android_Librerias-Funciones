@@ -3,6 +3,8 @@ package com.polarnemo.nuevoproyecto.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -58,6 +60,13 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
         holder.lblPromedioCurso.setText(arrayCurso.get(position).getPromedioFinal()+"");
         holder.lblProfesorCurso.setText(arrayCurso.get(position).getIdProfesor());
         holder.chkAprobadoCurso.setChecked(arrayCurso.get(position).getAprobado());
+        if(arrayCurso.get(position).getAprobado()) {
+            int verde = context.getResources().getColor(R.color.greenTras);
+            holder.parentLayout.setBackgroundColor(verde);
+        }else{
+            int rojo = context.getResources().getColor(R.color.redTras);
+            holder.parentLayout.setBackgroundColor(rojo);
+        }
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +92,6 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
                 Log.i(TAG, "onClick: Termiandno de crear los activity.putExtra");
                 Log.i(TAG, "onClick: Llamando el CursoActivity");
                 context.startActivity(intentCurso);
-
-
-
             }
         });
 

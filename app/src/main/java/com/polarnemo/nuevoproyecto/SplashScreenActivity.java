@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private final int SPLASH_TIMEDISPLAY_LENGTH = 2500;
+    private final int SPLASH_TIMEDISPLAY_LENGTH = 3500;
 
     private static final String TAG = "SplashScreenActivity|NP";
 

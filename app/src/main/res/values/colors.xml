@@ -7,6 +7,8 @@
     <color name="white">#ffffff</color>
     <color name="indigo">#3F00FF</color>
     <color name="green">#0ece38</color>
+    <color name="greenTras">#810ECE38</color>
     <color name="red">#ba1818</color>
+    <color name="redTras">#94BA1818</color>
     <color name="grey">#c3c3c3 </color>
 </resources>

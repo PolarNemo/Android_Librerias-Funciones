@@ -10,16 +10,16 @@ public class Curso {
     public Curso() {
         this.nombreCurso = "Curso Navegacion";
         this.idProfesor = "t666";
-        this.nota1 = 10;
-        this.nota2 = 13;
-        this.nota3 = 17;
-        this.nota4 = 20;
-        this.notaFinal = 15;
-        this.inasistencias = 2;
+        this.nota1 = 0;
+        this.nota2 = 0;
+        this.nota3 = 0;
+        this.nota4 = 0;
+        this.notaFinal = 0;
+        this.inasistencias = 0;
         this.cantClasesTotales = 16;
-        this.promedioFinal = (this.nota1+this.nota2+this.nota3+this.nota4+(this.notaFinal*2))/5;
+        this.promedioFinal = ((this.nota1+this.nota2+this.nota3+this.nota4)/4+(this.notaFinal*2))/3;
         this.promedioInasistencias = this.inasistencias*100/this.cantClasesTotales;
-        this.aprobado = true;
+        this.aprobado = false;
     }
 
     public Curso(String nombreCurso, String idProfesor, int nota1, int nota2, int nota3, int nota4,
@@ -33,7 +33,7 @@ public class Curso {
         this.notaFinal = notaFinal;
         this.inasistencias = inasistencias;
         this.cantClasesTotales = cantClasesTotales;
-        this.promedioFinal = (this.nota1+this.nota2+this.nota3+this.nota4+(this.notaFinal*2))/5;
+        this.promedioFinal = ((this.nota1+this.nota2+this.nota3+this.nota4)/4+(this.notaFinal*2))/3;
         this.promedioInasistencias = this.inasistencias*100/this.cantClasesTotales;
         this.aprobado = aprobado;
     }
@@ -111,7 +111,7 @@ public class Curso {
     }
 
     public double getPromedioFinal() {
-        return promedioFinal;
+        return ((this.nota1+this.nota2+this.nota3+this.nota4)/4+(this.notaFinal*2))/3;
     }
 
     public void setPromedioFinal(double promedioFinal) {
@@ -119,7 +119,7 @@ public class Curso {
     }
 
     public double getPromedioInasistencias() {
-        return promedioInasistencias;
+        return this.inasistencias*100/this.cantClasesTotales;
     }
 
     public void setPromedioInasistencias(double promedioInasistencias) {
@@ -127,7 +127,11 @@ public class Curso {
     }
 
     public boolean getAprobado() {
-        return aprobado;
+        if(((this.nota1+this.nota2+this.nota3+this.nota4)/4+(this.notaFinal*2))/3>=13.0) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void setAprobado(boolean aprobado) {

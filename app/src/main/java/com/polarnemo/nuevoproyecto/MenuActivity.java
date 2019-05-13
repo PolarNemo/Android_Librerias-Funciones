@@ -1,5 +1,6 @@
 package com.polarnemo.nuevoproyecto;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,7 +36,23 @@ public class MenuActivity  extends AppCompatActivity {
         lblUserName=findViewById(R.id.lblUserName);
         lblUserDni=findViewById(R.id.lblUserDni);
 
+        //Adquiriendo los extras
+        Intent intent=getIntent();
+        String nombreUsuario= intent.getStringExtra("Login_to_Menu_Nombre");
+        String carreraUsuario= intent.getStringExtra("Login_to_Menu_Carrera");
+        int DNIUsuario= intent.getIntExtra("Login_to_Menu_DNI",0);
+        int edadUsuario= intent.getIntExtra("Login_to_Menu_Edad",0);
+
+        Log.i(TAG, "onCreate: nombreUsuario:"+nombreUsuario);
+        Log.i(TAG, "onCreate: carreraUsuario:"+carreraUsuario);
+        Log.i(TAG, "onCreate: DNIUsuario:"+DNIUsuario);
+        Log.i(TAG, "onCreate: edadUsuario:"+edadUsuario);
+
         cargandoDatos();
+
+        //Pintando los datos del usuario
+        lblUserName.setText(nombreUsuario);
+        lblUserDni.setText(": "+DNIUsuario);
 
         Log.i(TAG, "onCreate: Terminando el menu");
     }
@@ -44,30 +61,7 @@ public class MenuActivity  extends AppCompatActivity {
     {
         Log.i(TAG, "cargandoDatos: Empezando a cargar datos");
 
-        objCurso=new Curso();
-        objCurso.setNombreCurso("Antropologia");
-        objCurso.setPromedioFinal(19);
-        objCurso.setIdProfesor("ANT007");
-        objCurso.setAprobado(true);
-
-        listCursos.add(objCurso);
-
-        objCurso=new Curso();
-        objCurso.setNombreCurso("Biologia");
-        objCurso.setPromedioFinal(10);
-        objCurso.setIdProfesor("BIO666");
-        objCurso.setAprobado(false);
-
-        listCursos.add(objCurso);
-
-        objCurso=new Curso();
-        objCurso.setNombreCurso("Ciencias Sociales");
-        objCurso.setPromedioFinal(16);
-        objCurso.setIdProfesor("CSO777");
-        objCurso.setAprobado(true);
-
-        listCursos.add(objCurso);
-
+        llenandoData();
 
         Log.i(TAG, "cargandoDatos: Cargando el Curso Adapter");
 
@@ -84,6 +78,98 @@ public class MenuActivity  extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Log.i(TAG, "cargandoAdapter: Terminando el Adapter");
+    }
+
+    private void llenandoData()
+    {
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Antropologia");
+        objCurso.setNota1(13);
+        objCurso.setNota2(17);
+        objCurso.setNota3(19);
+        objCurso.setNota4(20);
+        objCurso.setNotaFinal(18);
+        objCurso.setInasistencias(0);
+        objCurso.setIdProfesor("ANT007");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Biologia");
+        objCurso.setNota1(10);
+        objCurso.setNota2(14);
+        objCurso.setNota3(18);
+        objCurso.setNota4(20);
+        objCurso.setNotaFinal(17);
+        objCurso.setInasistencias(1);
+        objCurso.setIdProfesor("BIO666");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Ciencias Sociales");
+        objCurso.setNota1(5);
+        objCurso.setNota2(12);
+        objCurso.setNota3(11);
+        objCurso.setNota4(13);
+        objCurso.setNotaFinal(14);
+        objCurso.setInasistencias(3);
+        objCurso.setCantClasesTotales(10);
+        objCurso.setIdProfesor("CSO777");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Dopamina y sus regulaciones");
+        objCurso.setNota1(0);
+        objCurso.setNota2(0);
+        objCurso.setNota3(0);
+        objCurso.setNota4(0);
+        objCurso.setNotaFinal(20);
+        objCurso.setInasistencias(15);
+        objCurso.setCantClasesTotales(16);
+        objCurso.setIdProfesor("DOR142");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Estadistica para Dummies");
+        objCurso.setNota1(20);
+        objCurso.setNota2(20);
+        objCurso.setNota3(20);
+        objCurso.setNota4(20);
+        objCurso.setNotaFinal(0);
+        objCurso.setInasistencias(1);
+        objCurso.setCantClasesTotales(16);
+        objCurso.setIdProfesor("ESD854");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Forence, Introduccion");
+        objCurso.setNota1(15);
+        objCurso.setNota2(16);
+        objCurso.setNota3(19);
+        objCurso.setNota4(18);
+        objCurso.setNotaFinal(15);
+        objCurso.setInasistencias(0);
+        objCurso.setCantClasesTotales(17);
+        objCurso.setIdProfesor("FOI211");
+
+        listCursos.add(objCurso);
+
+        objCurso=new Curso();
+        objCurso.setNombreCurso("Gerundios y sus aplicaciones");
+        objCurso.setNota1(15);
+        objCurso.setNota2(13);
+        objCurso.setNota3(14);
+        objCurso.setNota4(13);
+        objCurso.setNotaFinal(5);
+        objCurso.setInasistencias(0);
+        objCurso.setCantClasesTotales(17);
+        objCurso.setIdProfesor("GYA152");
+
+        listCursos.add(objCurso);
     }
 
 
