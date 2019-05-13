@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".MenuActivity">
         </activity>
+        <activity android:name=".CursoActivity">
+        </activity>
     </application>
 
 </manifest>

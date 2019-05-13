@@ -2,6 +2,7 @@ package com.polarnemo.nuevoproyecto.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.polarnemo.nuevoproyecto.CursoActivity;
 import com.polarnemo.nuevoproyecto.R;
 import com.polarnemo.nuevoproyecto.be.Curso;
 
@@ -49,6 +51,8 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, final int position){
         Log.i(TAG, "onBindViewHolder: called");
 
+
+
         holder.lblNameCurso.setText(arrayCurso.get(position).getNombreCurso());
         holder.lblPromedioCurso.setText(arrayCurso.get(position).getPromedioFinal()+"");
         holder.lblProfesorCurso.setText(arrayCurso.get(position).getIdProfesor());
@@ -58,12 +62,25 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(context,"Funciono perra",Toast.LENGTH_LONG).show();
-
                 Log.i(TAG, "onClick: Nombre curso"+arrayCurso.get(position).getNombreCurso());
                 Log.i(TAG, "onClick: Promedio curso"+arrayCurso.get(position).getPromedioFinal());
                 Log.i(TAG, "onClick: Profesor curso"+arrayCurso.get(position).getIdProfesor());
                 Log.i(TAG, "onClick: Aprobado curso"+arrayCurso.get(position).getAprobado());
+
+                //Llamando la activity
+                Intent intentCurso=new Intent(context, CursoActivity.class);
+                intentCurso.putExtra("Menu_to_Curso_Nombre",arrayCurso.get(position).getNombreCurso());
+                intentCurso.putExtra("Menu_to_Curso_PromedioFinal",arrayCurso.get(position).getPromedioFinal());
+                intentCurso.putExtra("Menu_to_Curso_Aprobado",arrayCurso.get(position).getAprobado());
+                intentCurso.putExtra("Menu_to_Curso_Nota1",arrayCurso.get(position).getNota1());
+                intentCurso.putExtra("Menu_to_Curso_Nota2",arrayCurso.get(position).getNota2());
+                intentCurso.putExtra("Menu_to_Curso_Nota3",arrayCurso.get(position).getNota3());
+                intentCurso.putExtra("Menu_to_Curso_Nota4",arrayCurso.get(position).getNota4());
+                intentCurso.putExtra("Menu_to_Curso_NotaFinal",arrayCurso.get(position).getNotaFinal());
+                intentCurso.putExtra("Menu_to_Curso_PromedioInasistencias",arrayCurso.get(position).getPromedioInasistencias());
+                context.startActivity(intentCurso);
+
+
 
             }
         });
