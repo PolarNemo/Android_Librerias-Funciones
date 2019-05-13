@@ -41,6 +41,8 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        Log.i(TAG, "TAG: "+TAG);
+        Log.i(TAG, "----------------------------");
         Log.i(TAG, "onCreateViewHolder: called");
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cursos_adapter, parent, false);
         ViewHolder holder = new ViewHolder(view) ;
@@ -51,8 +53,7 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, final int position){
         Log.i(TAG, "onBindViewHolder: called");
 
-
-
+        Log.i(TAG, "onBindViewHolder: Colocando texto");
         holder.lblNameCurso.setText(arrayCurso.get(position).getNombreCurso());
         holder.lblPromedioCurso.setText(arrayCurso.get(position).getPromedioFinal()+"");
         holder.lblProfesorCurso.setText(arrayCurso.get(position).getIdProfesor());
@@ -68,6 +69,7 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
                 Log.i(TAG, "onClick: Aprobado curso"+arrayCurso.get(position).getAprobado());
 
                 //Llamando la activity
+                Log.i(TAG, "onClick: Creando los activity.putExtra");
                 Intent intentCurso=new Intent(context, CursoActivity.class);
                 intentCurso.putExtra("Menu_to_Curso_Nombre",arrayCurso.get(position).getNombreCurso());
                 intentCurso.putExtra("Menu_to_Curso_PromedioFinal",arrayCurso.get(position).getPromedioFinal());
@@ -78,6 +80,8 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
                 intentCurso.putExtra("Menu_to_Curso_Nota4",arrayCurso.get(position).getNota4());
                 intentCurso.putExtra("Menu_to_Curso_NotaFinal",arrayCurso.get(position).getNotaFinal());
                 intentCurso.putExtra("Menu_to_Curso_PromedioInasistencias",arrayCurso.get(position).getPromedioInasistencias());
+                Log.i(TAG, "onClick: Termiandno de crear los activity.putExtra");
+                Log.i(TAG, "onClick: Llamando el CursoActivity");
                 context.startActivity(intentCurso);
 
 
@@ -95,6 +99,8 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private static final String TAG = "ViewHolder";
+
         TextView lblNameCurso, lblPromedioCurso, lblProfesorCurso;
         CheckBox chkAprobadoCurso;
         LinearLayout parentLayout;
@@ -102,11 +108,14 @@ public class CursosAdapter extends RecyclerView.Adapter<CursosAdapter.ViewHolder
         public ViewHolder(View itemView)
         {
             super(itemView);
+            Log.i(TAG, "ViewHolder: Iniando ViewHolder");
+            Log.i(TAG, "ViewHolder: Asisgnando las variables al xml partner del adapter");
             lblNameCurso= itemView.findViewById(R.id.lblNameCurso_CursoListView);
             lblPromedioCurso=itemView.findViewById(R.id.lblPromedioCurso_CursoListView);
             lblProfesorCurso= itemView.findViewById(R.id.lblProfesorCurso_CursoListView);
             chkAprobadoCurso=itemView.findViewById(R.id.chkAprobadoCurso_CursoListView);
             parentLayout=itemView.findViewById(R.id.parentLayout_CursoRecyclerViewAdapter);
+            Log.i(TAG, "ViewHolder: Terminando ViewHolder");
 
         }
 
